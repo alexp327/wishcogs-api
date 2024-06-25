@@ -58,10 +58,10 @@ export class AppService {
     console.log('username: ', username);
 
     const response = await this.httpService.get(
-      `https://api.discogs.com/users/alexp327/wants`,
+      `https://api.discogs.com/users/username/wants`,
       {
         headers: {
-          Authorization: `Discogs token=NeKxtZwHweNeSiBAogANNhSJIfFczJLJONwDxrux`,
+          Authorization: `Discogs -----`,
         },
       },
     );
