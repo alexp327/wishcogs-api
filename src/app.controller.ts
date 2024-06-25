@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 import { Release } from 'db/entities/release.entity';
 
@@ -11,14 +11,24 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @Get('ligma')
-  getLigma(): string {
-    return this.appService.getLigma();
+  @Post('release')
+  async addRelease(
+    @Body('releaseId') releaseId: number,
+    @Body('desiredPrice') desiredPrice: number,
+  ): Promise<Release> {
+    if (!releaseId) {
+      throw new Error('releaseId is required');
+    }
+
+    if (!desiredPrice) {
+      throw new Error('desiredPrice is required');
+    }
+
+    return await this.appService.addRelease(releaseId, desiredPrice, true);
   }
 
-  // add a post endpoint for adding a new Release to the db
-  @Get('release')
-  async addRelease(): Promise<Release> {
-    return await this.appService.addRelease(201, 60.0);
+  @Get('wantlist/sync')
+  async syncWantlist() {
+    return await this.appService.syncWantlist();
   }
 }
