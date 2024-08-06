@@ -1,3 +1,5 @@
+The Discogs [Wantlister](https://wantlister.discogs.com/) just released and is essentially my vision for this tool. Putting this on pause in favor of other projects.
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
